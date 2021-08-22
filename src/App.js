@@ -77,7 +77,7 @@ function App() {
         return res.json();
       })
       .then((json) => {
-        setItems(json);
+        setItems((prev) => [...prev, ...json]);
       });
   }, []);
 
