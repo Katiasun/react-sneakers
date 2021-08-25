@@ -1,11 +1,11 @@
-function Drawer(props) {
+function Drawer({ onClose, items = [] }) {
   return (
     <div className="overlay">
       <div className="drawer">
         <h2 className="d-flex justify-between mb-30 ">
           Корзина{" "}
           <img
-            onClick={props.onClose}
+            onClick={onClose}
             className="cu-p"
             src="/img/chrest.svg"
             alt="remove"
@@ -13,31 +13,20 @@ function Drawer(props) {
         </h2>
 
         <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              style={{ backgroundImage: "url(/img/sneakers/2.jpg)" }}
-              className="cartItemImg"
-            ></div>
+          {items.map((obj) => (
+            <div className="cartItem d-flex align-center mb-20">
+              <div
+                style={{ backgroundImage: `url(${obj.imgUrl})` }}
+                className="cartItemImg"
+              ></div>
 
-            <div className="mr-20 flex">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
+              <div className="mr-20 flex">
+                <p className="mb-5">{obj.title}</p>
+                <b>{obj.price} руб.</b>
+              </div>
+              <img className="removeBtn" src="/img/chrest.svg" alt="remove" />
             </div>
-            <img className="removeBtn" src="/img/chrest.svg" alt="remove" />
-          </div>
-
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              style={{ backgroundImage: "url(/img/sneakers/1.jpg)" }}
-              className="cartItemImg"
-            ></div>
-
-            <div className="mr-20 flex">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>12 999 руб.</b>
-            </div>
-            <img className="removeBtn" src="/img/chrest.svg" alt="remove" />
-          </div>
+          ))}
         </div>
         <div className="cartTotalBlock">
           <ul>
