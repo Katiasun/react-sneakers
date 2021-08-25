@@ -104,7 +104,7 @@ function App() {
             <Card
               title={item.title}
               price={item.price}
-              imgUrl={item.imageUrl}
+              imageUrl={item.imageUrl}
               onClickFavorite={() => alert("Добавили закладки")}
               onPlus={(obj) => console.log(obj)}
             />
